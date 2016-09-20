@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http//mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.movie.mappers.Mapper">
+	
+	<insert id ="movieRegister" parameterType="mvo">
+		insert into movie(num,title,direc) values (movie_seq.nextval,#{title},#{director},
+		#{content},#{img},#{actor},#{pay})
+	</insert>
+	
+	<insert id ="theaterRegister" parameterType="tvo">
+		insert into theater values (theater_seq.nextval,#{theater},#{location},
+		#{seat},#{openDate},#{endDate})
+	</insert>
+	
+	<insert id ="tiketingInfo" parameterType="tivo">
+		insert into tiketinginfo values (theater_seq.nextval,#{theater},#{location},
+		#{seat},#{openDate},#{endDate})
+	</insert>
+	
+	<insert id ="customerRegister" parameterType="cvo">
+		insert into customer values (theater_seq.nextval,#{theater},#{location},
+		#{seat},#{openDate},#{endDate})
+	</insert>
+	
+	<select id="movieInfo" resultType="mvo">
+		select * from movie where title=#{searchKey}
+	</select>		
+	
+	<select id="theaterList" resultType="mvo">
+		select * from theater
+	</select>
+	
+	<select id="movieList" resultType="mvo">
+		select * from movie
+	</select>
+		
+</mapper>
